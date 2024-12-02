@@ -1,0 +1,40 @@
+<div class="form-container">
+  <form (ngSubmit)="onSubmit()" #creeForm="ngForm">
+    <div class="form-group">
+      <label for="name">Nom :</label>
+      <input 
+        type="text" 
+        id="name" 
+        name="name" 
+        class="form-control" 
+        ngModel 
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email :</label>
+      <input 
+        type="email" 
+        id="email" 
+        name="email" 
+        class="form-control" 
+        ngModel 
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="role">Rôle :</label>
+      <select id="role" name="role" class="form-control" ngModel required>
+        <option value="admin">Admin</option>
+        <option value="user">Utilisateur</option>
+        <option value="guest">Invité</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="!creeForm.form.valid">
+      Créer
+    </button>
+  </form>
+</div>

@@ -1,0 +1,48 @@
+<div class="search-bar"> <input type="text" placeholder="Rechercher des produits..." [(ngModel)]="searchQuery" (input)="filterProducts()" /> </div>
+<div class="hero-section">
+  <div class="hero-content">
+    <h1>Bienvenue sur notre Boutique</h1>
+    <p>Découvrez nos produits exceptionnels et nos offres exclusives !</p>
+    <button class="btn btn-primary">
+      <a routerLink="/produit" routerLinkActive="active" (click)="exploreProducts()">Explorer les produits</a>
+    </button>
+      </div>
+</div>
+<section class="categories">
+  <h2>Nos Catégories</h2>
+  <div class="category-container">
+    <div class="category" *ngFor="let category of filteredCategories">
+      <img [src]="category.image" [alt]="category.name" />
+      <p>{{ category.name }}</p>
+      <p class="description">{{ category.description }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="featured-products">
+  <h2>Produits en Vedette</h2>
+  <div class="product-container">
+    <div class="product-card" *ngFor="let product of filteredFeaturedProducts">
+      <img [src]="product.image" [alt]="product.name" />
+      <p>{{ product.name }}</p>
+      <p>{{ product.description }}</p>
+      <p class="price">{{ product.price | currency: 'TND' }}</p>
+      <button class="btn-secondary" routerLink="/cart" routerLinkActive="active" (click)="addToCart(product)">
+        Ajouter au Panier
+      </button>
+            
+    </div>
+  </div>
+</section>
+
+<section class="promotions">
+  <h2>Promotions Spéciales</h2>
+  <div class="promotion-container">
+    <div class="promotion-card" *ngFor="let promo of filteredPromotions">
+      <img [src]="promo.image" [alt]="promo.name" />
+      <p>{{ promo.name }}</p>
+      <p>{{ promo.description }}</p>
+      <p class="discount">Réduction: {{ promo.discount }}</p>
+    </div>
+  </div>
+</section>

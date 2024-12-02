@@ -1,0 +1,228 @@
+// Variables
+$product-bg: #f9f9f9;
+$product-hover-bg: #e6e6e6;
+$product-shadow: rgba(0, 0, 0, 0.1);
+$highlight-color: #4CAF50;
+$price-color: #FF5722;
+$default-text-color: #333;
+$font-family: 'Roboto', sans-serif;
+
+// Liste des produits
+.product-list {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  
+  h1 {
+    text-align: center;
+    color: $highlight-color;
+    margin-bottom: 40px;
+    font-size: 40px;
+    font-family: $font-family;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .category-list {
+    margin-top: 40px;
+
+    h2 {
+      font-size: 32px;
+      text-align: center;
+      color: $default-text-color;
+      margin-bottom: 30px;
+      font-weight: bold;
+    }
+
+    .category {
+      margin-bottom: 60px;
+
+      h3 {
+        font-size: 28px;
+        color: $highlight-color;
+        margin-bottom: 25px;
+        text-align: center;
+        font-weight: 600;
+        letter-spacing: 1px;
+      }
+
+      .category-products {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        list-style: none;
+        padding: 0;
+      }
+
+      .product-item {
+        background-color: $product-bg;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px $product-shadow;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        flex: 1 1 calc(33% - 20px);
+        max-width: calc(33% - 20px);
+        margin: 10px;
+        padding: 20px;
+        box-sizing: border-box;
+        cursor: pointer;
+
+        &:hover {
+          transform: scale(1.05);
+          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+          background-color: $product-hover-bg;
+        }
+
+        .product-image {
+          width: 100%;
+          height: 250px;
+          object-fit: cover;
+          border-radius: 10px;
+          margin-bottom: 15px;
+          transition: transform 0.3s ease;
+
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+
+        .product-details {
+          text-align: center;
+
+          .product-name {
+            font-weight: 700;
+            font-size: 20px;
+            color: $default-text-color;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+
+            &:hover {
+              color: $highlight-color;
+            }
+          }
+
+          .product-price {
+            font-size: 18px;
+            color: $price-color;
+            font-weight: 600;
+            transition: color 0.3s ease;
+
+            &:hover {
+              color: darken($price-color, 10%);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Styles responsives
+@media (max-width: 768px) {
+  .product-list {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  .category-list {
+    margin-top: 20px;
+
+    .category {
+      margin-bottom: 40px;
+
+      h3 {
+        font-size: 24px;
+      }
+
+      .category-products {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: space-around;
+      }
+
+      .product-item {
+        flex: 1 1 calc(50% - 20px);
+        max-width: calc(50% - 20px);
+        padding: 15px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .product-list {
+    padding: 5px;
+  }
+
+  h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+
+  .category-list {
+    margin-top: 10px;
+
+    .category {
+      margin-bottom: 30px;
+
+      h3 {
+        font-size: 20px;
+      }
+
+      .category-products {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: space-between;
+      }
+
+      .product-item {
+        flex: 1 1 100%;
+        max-width: 100%;
+        padding: 10px;
+      }
+    }
+  }
+}
+
+// Bouton Ajouter au panier
+.add-to-cart-btn {
+  background-color: #007BFF; /* Couleur bleue pour le fond */
+  color: #fff; /* Texte en blanc */
+  border: 2px solid #007BFF; /* Bordure de la même couleur que le fond */
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 30px; /* Bord arrondi */
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  /* Effet au survol */
+  &:hover {
+    background-color: #0056b3; /* Fond bleu plus foncé lors du survol */
+    border-color: #0056b3; /* Border de la même couleur que le fond */
+    transform: scale(1.05); /* Effet de surbrillance au survol */
+  }
+
+  /* Effet lors de l'appui */
+  &:active {
+    background-color: #004085; /* Fond bleu encore plus foncé lorsqu'on clique */
+    border-color: #004085; /* Border de la même couleur que le fond */
+  }
+
+  /* Retirer le contour de focus pour un look plus propre */
+  &:focus {
+    outline: none;
+  }
+
+  /* Ajouter une ombre subtile */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}

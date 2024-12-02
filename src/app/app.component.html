@@ -1,0 +1,30 @@
+<mat-toolbar color="primary" class="toolbar">
+  <span class="toolbar-title">E-Commerce</span>
+  <span class="spacer"></span>
+
+  <!-- Menu Desktop -->
+  <nav class="desktop-menu">
+    <ul>
+      <li>
+        <a mat-button routerLink="/accueil" routerLinkActive="active">Accueil</a>
+      </li>
+      <li>
+        <a mat-button routerLink="/produit" routerLinkActive="active">Produits</a>
+      </li>
+      <li>
+        <a mat-button routerLink="/connexion" routerLinkActive="active">Connexion</a>
+      </li>
+      <li>
+        <a mat-button routerLink="/cart" routerLinkActive="active">
+          <mat-icon>shopping_cart</mat-icon> Panier
+        </a>
+      </li>
+      <li>
+        <a mat-button routerLink="/contact" routerLinkActive="active">Nous Contacter</a>
+      </li>
+    </ul>
+  </nav>
+</mat-toolbar>
+
+<!-- Contenu dynamique -->
+<router-outlet></router-outlet>

@@ -1,0 +1,24 @@
+<div class="product-list">
+  <h1>Produits Électroniques</h1>
+
+  <div class="category-list">
+    <h2>Catégories</h2>
+    <div class="category" *ngFor="let category of categories">
+      <h3>{{ category.name }}</h3>
+      <div class="category-products">
+        <li *ngFor="let product of category.products" class="product-item">
+          <img 
+            [src]="product.imageUrl" 
+            [alt]="product.name" 
+            class="product-image" 
+            (error)="handleError($event)">
+          <div class="product-details">
+            <span class="product-name">{{ product.name }}</span>
+            <span class="product-price">{{ product.price }} TND</span> 
+            <button class="add-to-cart-btn" routerLink="/cart" routerLinkActive="active" (click)="addToCart(product)">Ajouter au panier</button>
+          </div>
+        </li>
+      </div>
+    </div>
+  </div>
+</div>

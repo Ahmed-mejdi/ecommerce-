@@ -1,0 +1,51 @@
+<div class="cart-page">
+  <div class="cart-header">
+    <h1>Votre Panier</h1>
+    <p>Vérifiez vos articles et passez à la caisse lorsque vous êtes prêt.</p>
+  </div>
+
+  <div class="cart-table">
+    <div class="cart-table-header">
+      <div class="header-item">Produit</div>
+      <div class="header-item">Nom</div>
+      <div class="header-item">Quantité</div>
+      <div class="header-item">Prix</div>
+      <div class="header-item">Total</div>
+      <div class="header-item">Action</div>
+    </div>
+
+    <div class="cart-table-body">
+      <div class="cart-item" *ngFor="let item of cartItems">
+        <img [src]="item.imageUrl" alt="{{ item.name }}">
+        <div class="item-details">
+          <p class="item-name">{{ item.name }}</p>
+          <p class="item-price">{{ item.price | currency:'TND' }}</p>
+        </div>
+        <div class="item-quantity">
+          <input type="number" [value]="item.quantity" min="1" (change)="updateQuantity(item, $event)" />
+        </div>
+        <div class="item-total">{{ item.total | currency:'TND' }}</div>
+        <div class="item-action">
+          <button class="item-remove" (click)="removeItem(item)">Supprimer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cart-summary">
+    <h2>Résumé du Panier</h2>
+    <div class="summary-item">
+      <div class="label">Sous-total</div>
+      <div class="value">{{ subtotal | currency:'TND' }}</div>
+    </div>
+    <div class="summary-item">
+      <div class="label">Frais de livraison</div>
+      <div class="value">{{ shippingFee | currency:'TND' }}</div>
+    </div>
+    <div class="summary-total">
+      <div class="total-label">Total</div>
+      <div class="total-value">{{ total | currency:'TND' }}</div>
+    </div>
+    <button class="btn-checkout" (click)="checkout()">Passer à la Caisse</button>
+  </div>
+</div>
